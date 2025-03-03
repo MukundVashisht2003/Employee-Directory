@@ -1,0 +1,85 @@
+/* filepath: /c:/Users/mukun/Desktop/ASP.NET crud Operations/Client/src/Operations/Read/Read.scss */
+.read {
+    padding: 20px;
+    background-color: #f9f9f9;
+  
+    &__content {
+      max-width: 1200px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  
+    &__header {
+      font-size: 2em;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #343a40;
+    }
+  
+    &__button {
+      border: none;
+      margin-bottom: 20px;
+      text-decoration: none;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+  
+      &--add {
+        background-color: #ffc107;
+      }
+  
+      &--update {
+        background-color: #dc3545;
+      }
+  
+      &--delete {
+        background-color: #28a745;
+      }
+  
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  
+    &__table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+  
+      &-head {
+        background-color: #343a40;
+        color: #fff;
+      }
+  
+      &-row {
+        border-bottom: 1px solid #dee2e6;
+      }
+  
+      &-header, &-data {
+        padding: 12px 15px;
+        text-align: left;
+      }
+  
+      &-header {
+        font-weight: bold;
+      }
+  
+      &-data {
+        background-color: #f8f9fa;
+  
+        &:nth-child(even) {
+          background-color: #e9ecef;
+        }
+  
+        a {
+          color: inherit;
+          text-decoration: none;
+          margin-right: 20px;
+        }
+      }
+    }
+  }

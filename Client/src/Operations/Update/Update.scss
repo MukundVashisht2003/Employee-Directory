@@ -1,0 +1,66 @@
+/* filepath: /c:/Users/mukun/Desktop/ASP.NET crud Operations/Client/src/Operations/Update/Update.scss */
+.update {
+    padding: 20px;
+    background-color: #f9f9f9;
+  
+    &__container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  
+    &__title {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #343a40;
+    }
+  
+    &__form {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    &__form-group {
+      margin-bottom: 15px;
+    }
+  
+    &__label {
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #343a40;
+    }
+  
+    &__input {
+      padding: 10px;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+      width: 100%;
+    }
+  
+    &__button {
+      text-align: center;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+  
+      &.btn-primary {
+        border-color: #007bff;
+        background-color: #007bff;
+      }
+  
+      &.btn-secondary {
+        background-color: #6c757d;
+      }
+  
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }

@@ -1,14 +1,23 @@
 import { Link } from "react-router-dom"
 import "./Read.scss"
+import axios from "axios";
+import { useEffect ,useState} from "react";
 
 function Read() {
-  console.log("Read component rendered");
+  
+  const [users, setUsers] = useState([]);
 
-  const users = [
-    { ID: 1, Name: "John Doe", Email: "john@example.com", Age: 30, Department: "Engineering" },
-    { ID: 2, Name: "Jane Smith", Email: "jane@example.com", Age: 25, Department: "Marketing" }
-  ];
+  useEffect(() => {
+    axios.get('http://localhost:7262/api/Employees')
+      .then((response) => {
+        console.log(response.data)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }, [])
 
+  
   return (
     <div className='read'>
       <div className='read__content'>

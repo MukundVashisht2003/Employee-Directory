@@ -20,7 +20,7 @@ The **Employee Directory** is a web application that allows users to manage empl
 ### **Backend (ASP.NET Core API)**
 - ASP.NET Core ![ASP.NET](https://img.shields.io/badge/ASP.NET_Core-512BD4?logo=dotnet&logoColor=white&style=flat-square)
 - Entity Framework Core ![Entity Framework](https://img.shields.io/badge/EF_Core-512BD4?logo=microsoftsqlserver&logoColor=white&style=flat-square)
-- SQL Server ![SQL Server](https://img.shields.io/badge/SQL_Server-CC2927?logo=microsoftsqlserver&logoColor=white&style=flat-square)
+- MongoDB ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?logo=mongodb&logoColor=white&style=flat-square)
 
 ## 📊 Database Schema
 
@@ -29,47 +29,6 @@ The **Employee Directory** is a web application that allows users to manage empl
 | 101 | John Doe | john@example.com | 30 | IT | Edit/Delete |
 | 102 | Jane Smith | jane@example.com | 28 | HR | Edit/Delete |
 
-## 🎯 Installation & Setup
-### **Backend (ASP.NET Core API)**
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-repo/employee-directory.git
-   ```
-2. Navigate to the backend folder:
-   ```bash
-   cd employee-directory/backend
-   ```
-3. Restore dependencies:
-   ```bash
-   dotnet restore
-   ```
-4. Update the database:
-   ```bash
-   dotnet ef database update
-   ```
-5. Run the backend:
-   ```bash
-   dotnet run
-   ```
-
-### **Frontend (React.js)**
-1. Navigate to the frontend folder:
-   ```bash
-   cd employee-directory/frontend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the React application:
-   ```bash
-   npm start
-   ```
-
-## 🎥 Demo
-![Employee Directory Demo](https://your-image-url/demo.gif)
-
 
 ## 📜 License
 This project is licensed under the [MIT License](LICENSE).
-

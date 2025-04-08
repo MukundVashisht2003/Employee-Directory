@@ -1,8 +1,9 @@
 export interface IEmployee {
-    ID: number;
-    Name: string;
-    Email: string;
-    Age: number;
-    Department: string;
+    id: string | undefined;
+    name: string;
+    position: string;
+    department: string;
+    salary: number;
   }
   
+ 

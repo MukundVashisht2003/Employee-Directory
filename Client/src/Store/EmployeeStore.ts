@@ -18,7 +18,23 @@ export const EmployeeStore = create<IEmpolyeeStore>()(
 
             getEmployee: () => get().Employees,
 
-            
+            Id : undefined,
+
+            setId: (Id: string | undefined) => {
+                set((state) => {
+                    state.Id = Id;
+                })
+            },
+
+            getId: (id: string | undefined) => get().Employees.find((employee) => employee.id === id),
+
+            isOpen: false,
+
+            setIsOpen: (isOpen: boolean) => {
+                set((state) => {
+                    state.isOpen = isOpen;
+                })
+            }
         }))
     )
 )

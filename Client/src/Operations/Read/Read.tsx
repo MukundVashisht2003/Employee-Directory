@@ -3,31 +3,33 @@ import "./Read.scss";
 import axios from "axios";
 import { useEffect} from "react";
 import { EmployeeStore } from "../../Store/EmployeeStore";
-
+import Delete from "../Delete/Delete";
 
 function Read() {
-  const Employees = EmployeeStore().Employees
-  const setEmployees = EmployeeStore().setEmployees
-  const getEmployee = EmployeeStore().getEmployee
+  const Employees = EmployeeStore((state) => state.Employees)
+  const setEmployees = EmployeeStore((state) => state.setEmployees)
+  const setId = EmployeeStore((state) => state.setId);
+  const isOpen = EmployeeStore((state) => state.isOpen)
+  const setmodalOpen = EmployeeStore((state) => state.setIsOpen)
 
-  
-
-  useEffect(() => {
-    const fetchEmployees = async () => {
-      axios.get('http://localhost:5016/api/Employee')
-      .then((response) => {
-        setEmployees(response.data);
-        console.log(Employees);
-      })
-      
-    };
-
-    fetchEmployees();
-  }, []);
-
-  const deleteEmployee = async (id: number) => {
+  const fetchEmployees = async () => {
+    await axios.get('http://localhost:5016/api/Employee')
+    .then((response) => {
+      setEmployees(response?.data);
+      console.log(Employees);
+    })
     
   };
+
+  const handledeleteEmployee = async (id: string | undefined) => {
+    setmodalOpen(!isOpen);
+    setId(id);
+  };
+
+  useEffect(() => {
+    fetchEmployees();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className='read'>
@@ -38,33 +40,40 @@ function Read() {
         <table className="read__table table table-striped table-hover table-responsive table-bordered">
           <thead className="read__table-head table-dark">
             <tr className="read__table-row">
+              <th className="read__table-header">Serial</th>
               <th className="read__table-header">Employee ID</th>
               <th className="read__table-header">Name</th>
-              <th className="read__table-header">Email</th>
-              <th className="read__table-header">Age</th>
+              <th className="read__table-header">Position</th>
+              <th className="read__table-header">Salary</th>
               <th className="read__table-header">Department</th>
               <th className="read__table-header">Action</th>
             </tr>
           </thead>
           <tbody className="read__table-body">
+
             {
-              Employees.map((employee, id) => (
-                <tr key={id} className="read__table-row">
-                  <td className="read__table-data">{employee.ID}</td>
-                  <td className="read__table-data">{employee.Name}</td>
-                  <td className="read__table-data">{employee.Email}</td>
-                  <td className="read__table-data">{employee.Age}</td>
-                  <td className="read__table-data">{employee.Department}</td>
+              Employees?.map((employee,ID) => (
+                <tr key={employee.id} className="read__table-row">
+                  <td className="read__table-data">{ID+1}</td>
+                  <td className="read__table-data">{employee.id}</td>
+                  <td className="read__table-data">{employee.name}</td>
+                  <td className="read__table-data">{employee.position}</td>
+                  <td className="read__table-data">{employee.salary}</td>
+                  <td className="read__table-data">{employee.department}</td>
                   <td className="read__table-data">
                     <Link to={`/Update`} className='read__button read__button--update btn btn-danger me-2'>Update</Link>
-                    <button onClick={() => deleteEmployee(employee.ID)} className='read__button read__button--delete btn btn-success'>Delete</button>
+                    <button onClick={() => handledeleteEmployee(employee?.id)} className='read__button read__button--delete btn btn-success'>Delete</button>
                   </td>
                 </tr>
               ))
             }
+
           </tbody>
         </table>
       </div>
+      {isOpen && (
+        <Delete />
+      )}
     </div>
   )
 }

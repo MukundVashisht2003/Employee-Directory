@@ -7,7 +7,7 @@ namespace Employee_Directory.Models
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; }
+        public string Id { get; set; } // MongoDB will generate this automatically if null
 
         public string Name { get; set; }
         public string Position { get; set; }

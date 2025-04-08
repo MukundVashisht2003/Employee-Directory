@@ -4,7 +4,6 @@ import axios from 'axios';
 import './Create.scss';
 
 export const Create = () => {
-  const [ID, setID] = useState('');
   const [Name, setName] = useState('');
   const [Department, setDepartment] = useState('');
   const [Position, setPosition] = useState(''); 
@@ -13,8 +12,13 @@ export const Create = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    axios
-      .post('http://localhost:7262/api/Employee', { ID, Name, Position,Salary, Department }) 
+    axios.post('http://localhost:5016/api/Employee', { 
+      id : '',
+      Name: Name, 
+      Position: Position, 
+      Salary: Salary, 
+      Department: Department 
+    })
       .then(() => navigate('/'))
       .catch((error) => console.error('Error creating user:', error));
   };
@@ -24,16 +28,6 @@ export const Create = () => {
       <div className="create__container mt-5">
         <h2 className="create__title mb-4">User Information</h2>
         <form className="create__form" onSubmit={handleSubmit}>
-          <div className="create__form-group form-group">
-            <label htmlFor="id" className="create__label">Employee ID</label>
-            <input
-              type="text"
-              className="create__input form-control"
-              id="id"
-              placeholder="Enter ID"
-              onChange={(e) => setID(e.target.value)}
-            />
-          </div>
           <div className="create__form-group form-group">
             <label htmlFor="name" className="create__label">Name</label>
             <input

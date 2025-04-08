@@ -32,6 +32,9 @@ namespace Employee_Directory.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Employee employee)
         {
+            // Ensure the Id is not set manually
+            employee.Id = null;
+
             await _employeeService.CreateAsync(employee);
             return CreatedAtAction(nameof(Get), new { id = employee.Id }, employee);
         }

@@ -17,7 +17,10 @@ namespace Employee_Directory.Services
 
         public async Task<Employee> GetAsync(string id) => await _employees.Find(emp => emp.Id == id).FirstOrDefaultAsync();
 
-        public async Task CreateAsync(Employee employee) => await _employees.InsertOneAsync(employee);
+        public async Task CreateAsync(Employee employee)
+        {
+            await _employees.InsertOneAsync(employee);
+        }
 
         public async Task UpdateAsync(string id, Employee employee) => await _employees.ReplaceOneAsync(emp => emp.Id == id, employee);
 

@@ -61,7 +61,7 @@ function Read() {
                   <td className="read__table-data">{employee.salary}</td>
                   <td className="read__table-data">{employee.department}</td>
                   <td className="read__table-data">
-                    <Link to={`/Update`} className='read__button read__button--update btn btn-danger me-2'>Update</Link>
+                    <Link to={`/Update/${employee.id}`} className='read__button read__button--update btn btn-danger me-2' onClick={ () => {setId(employee.id)}}>Update</Link>
                     <button onClick={() => handledeleteEmployee(employee?.id)} className='read__button read__button--delete btn btn-success'>Delete</button>
                   </td>
                 </tr>

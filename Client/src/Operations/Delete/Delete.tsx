@@ -64,3 +64,7 @@ function Delete() {
 }
 
 export default Delete;
+
+function onRefresh() {
+  throw new Error("Function not implemented.");
+}

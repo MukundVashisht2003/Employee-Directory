@@ -21,7 +21,8 @@ namespace Employee_Directory.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Employee>> Get(string id)
         {
-            var employee = await _employeeService.GetAsync(id);
+            var employee = await _employeeService.GetAsync(id);             
+
             if (employee == null)
             {
                 return NotFound();
